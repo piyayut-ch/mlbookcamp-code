@@ -1,0 +1,6 @@
+make,model,year,engine_hp,engine_cylinders,transmission_type,vehicle_style,msrp,id
+nissan,stanza,1991,138.0,4,manual,sedan,2000,nis1
+hyundai,sonata,2017,202.75,4,automatic,sedan,27150,hyu1
+lotus,elise,2010,218.0,4,manual,convertible,54990,lot2
+gmc,acadia,2017,194.0,4,automatic,4dr_suv,34450,gmc1
+nissan,frontier,2017,261.0,6,manual,pickup,32340,nis2

@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.658">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="ปิยยุทธ จิตต์จำนงค์">
+
+<title>MLZoomcamp Note Week 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="w1_note_files/libs/clipboard/clipboard.min.js"></script>
+<script src="w1_note_files/libs/quarto-html/quarto.js"></script>
+<script src="w1_note_files/libs/quarto-html/popper.min.js"></script>
+<script src="w1_note_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="w1_note_files/libs/quarto-html/anchor.min.js"></script>
+<link href="w1_note_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="w1_note_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="w1_note_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="w1_note_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="w1_note_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-machine-learning-ml" id="toc-introduction-to-machine-learning-ml" class="nav-link active" data-scroll-target="#introduction-to-machine-learning-ml">1.1 Introduction to Machine Learning (ML)</a></li>
+  <li><a href="#ml-vs-rule-based-systems" id="toc-ml-vs-rule-based-systems" class="nav-link" data-scroll-target="#ml-vs-rule-based-systems">1.2 ML vs Rule-Based Systems</a></li>
+  <li><a href="#supervised-ml" id="toc-supervised-ml" class="nav-link" data-scroll-target="#supervised-ml">1.3 Supervised ML</a>
+  <ul class="collapse">
+  <li><a href="#ประเภทของ-supervised-learning" id="toc-ประเภทของ-supervised-learning" class="nav-link" data-scroll-target="#ประเภทของ-supervised-learning">ประเภทของ Supervised Learning</a></li>
+  </ul></li>
+  <li><a href="#crisp-dm-ml-process" id="toc-crisp-dm-ml-process" class="nav-link" data-scroll-target="#crisp-dm-ml-process">1.4 CRISP-DM: ML Process</a></li>
+  <li><a href="#model-selection-process" id="toc-model-selection-process" class="nav-link" data-scroll-target="#model-selection-process">1.5 Model Selection Process</a></li>
+  <li><a href="#setting-up-the-environment" id="toc-setting-up-the-environment" class="nav-link" data-scroll-target="#setting-up-the-environment">1.6 Setting up the Environment</a>
+  <ul class="collapse">
+  <li><a href="#install-miniconda" id="toc-install-miniconda" class="nav-link" data-scroll-target="#install-miniconda">install miniconda</a></li>
+  <li><a href="#สราง-environment" id="toc-สราง-environment" class="nav-link" data-scroll-target="#สราง-environment">สร้าง environment</a></li>
+  <li><a href="#optinal-install-vscode" id="toc-optinal-install-vscode" class="nav-link" data-scroll-target="#optinal-install-vscode">[Optinal] install vscode</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-numpy" id="toc-introduction-to-numpy" class="nav-link" data-scroll-target="#introduction-to-numpy">1.7 Introduction to Numpy</a>
+  <ul class="collapse">
+  <li><a href="#creating-arrays" id="toc-creating-arrays" class="nav-link" data-scroll-target="#creating-arrays">Creating arrays</a></li>
+  <li><a href="#multi-dimenstional-arrays" id="toc-multi-dimenstional-arrays" class="nav-link" data-scroll-target="#multi-dimenstional-arrays">Multi-dimenstional arrays</a></li>
+  <li><a href="#randomly-generated-arrays" id="toc-randomly-generated-arrays" class="nav-link" data-scroll-target="#randomly-generated-arrays">Randomly generated arrays</a></li>
+  <li><a href="#element-wise-operations" id="toc-element-wise-operations" class="nav-link" data-scroll-target="#element-wise-operations">Element-wise operations</a></li>
+  <li><a href="#comparison-operations" id="toc-comparison-operations" class="nav-link" data-scroll-target="#comparison-operations">Comparison operations</a></li>
+  <li><a href="#summarizeing-operations" id="toc-summarizeing-operations" class="nav-link" data-scroll-target="#summarizeing-operations">Summarizeing operations</a></li>
+  </ul></li>
+  <li><a href="#linear-algebra-refresher" id="toc-linear-algebra-refresher" class="nav-link" data-scroll-target="#linear-algebra-refresher">1.8 Linear Algebra Refresher</a>
+  <ul class="collapse">
+  <li><a href="#multiplication" id="toc-multiplication" class="nav-link" data-scroll-target="#multiplication">Multiplication</a></li>
+  <li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix">Identity matrix</a></li>
+  <li><a href="#inverse" id="toc-inverse" class="nav-link" data-scroll-target="#inverse">Inverse</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-pandas" id="toc-introduction-to-pandas" class="nav-link" data-scroll-target="#introduction-to-pandas">1.9 Introduction to Pandas</a>
+  <ul class="collapse">
+  <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame">Data frame</a></li>
+  <li><a href="#series" id="toc-series" class="nav-link" data-scroll-target="#series">Series</a></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index">Index</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering">Filtering</a></li>
+  <li><a href="#string-operations" id="toc-string-operations" class="nav-link" data-scroll-target="#string-operations">String operations</a></li>
+  <li><a href="#summarizing-operations-eda" id="toc-summarizing-operations-eda" class="nav-link" data-scroll-target="#summarizing-operations-eda">Summarizing operations (EDA)</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
+  <li><a href="#group-by" id="toc-group-by" class="nav-link" data-scroll-target="#group-by">Group By</a></li>
+  <li><a href="#io" id="toc-io" class="nav-link" data-scroll-target="#io">I/O</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MLZoomcamp Note Week 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>ปิยยุทธ จิตต์จำนงค์ </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction-to-machine-learning-ml" class="level1">
+<h1>1.1 Introduction to Machine Learning (ML)</h1>
+<p>เพื่อให้เข้าใจว่า ML คืออะไร ขอใช้การอธิบายผ่านตัวอย่างการทำนายราคารถยนต์มือสอง</p>
+<p>สมมติว่า เราต้องการขายรถยนต์ในตลาดมือสอง คำถาม คือ เราควรจะตั้งราคาขายที่เท่าไหร่ หากตั้งราคาสูงเกินไปก็จะขายไม่ได้ แต่ถ้าตั้งราคาต่ำเกินไปก็จะได้เงินน้อย แล้วราคาที่เหมาะสมคือเท่าไหร่</p>
+<p>เราสามารถใช้ข้อมูลการซื้อขายรถยนต์ในอดีต ข้อมูลรถและราคาขาย เพื่อค้นหา pattern ซึ่งสามารถใช้ในการทำนายราคาได้ - ข้อมูลของรถยนต์ เช่น ผู้ผลิต เลขไมล์ ปี จำนวนประตู เป็นต้น มีชื่อเรียกว่า features หรือ independent variables - ข้อมูลราคา คือ ข้อมูลที่ต้องการทำนาย มีชื่อเรียกว่า target หรือ dependent variable</p>
+<p>ข้อมูลในอดีตจะถูกใช้ในการสร้างแบบจำลอง ML (train) เมื่อได้แบบจำลองแล้ว เราสามารถใช้ในการทำนายกับข้อมูลใหม่ได้</p>
+</section>
+<section id="ml-vs-rule-based-systems" class="level1">
+<h1>1.2 ML vs Rule-Based Systems</h1>
+<ul>
+<li>Rule-Based system คือ ระบบที่แก้ปัญหาโดยการเขียนคำสั่งไว้สำหรับทุกกรณี</li>
+<li>ML system คือ ระบบที่แก้ปัญหาด้วยการใช้ข้อมูลในการหา pattern และตัดสินใจ</li>
+</ul>
+<p>สมมติว่า เราต้องการดัก spam email</p>
+<ul>
+<li>วิธีแบบดั้งเดิม (rule-based) ก็เอาข้อมูล email ที่ใช่และไม่ใช่spam มาวิเคราะห์ เพื่อหา keyword หลังจากนั้นก็เขียน code เพื่อดักโดยใช้เงื่อนไข เช่น หากมีคำว่า URGENT คือ spam <strong>ข้อเสีย</strong> ของวิธีนี้คือ spam email มีการปรับตัวอยู่ตลอด ดังนั้น code และเงื่อนไข ต้องมีการเพิ่มเติมอยู่ตลอดและยากต่อการจัดการ</li>
+<li>วิธี ML ใช้ข้อมูลในการหา pattern ของ spam email และทำนายว่า email นี้มีความน่าจะเป็น spam เท่าไหร่ <strong>ข้อดี</strong> คือ เมื่อ pattern มีการเปลี่ยนแปลง วิธีการ update คือ การ train model ด้วยข้อมูลใหม่ ง่ายต่อการจัดการมากกว่า</li>
+</ul>
+<p>สรุป:</p>
+<ul>
+<li>Rule-Based: <strong>Data</strong> + <strong>Code</strong> -&gt; <strong>Software</strong> -&gt; <strong>Outcome</strong></li>
+<li>ML: <strong>Data</strong> + <strong>Outcome</strong> -&gt; <strong>Model</strong> หลังจากนั้น <strong>Model</strong> + <strong>New Data</strong> -&gt; <strong>Prediction</strong></li>
+</ul>
+</section>
+<section id="supervised-ml" class="level1">
+<h1>1.3 Supervised ML</h1>
+<p>Supervised Learning การเรียนรู้แบบมีผู้สอน คือ รูปแบบหนึ่งของ ML ที่ใช้งานมากที่สุด โดยตอน train ต้องมีข้อมูลที่ใช้ในการทำนาย (feature) และข้อมูลที่เราต้องการทำนาย (target) ด้วย เพื่อให้แบบจำลองค้นหา pattern หมายเหตุ รูปแบบ ML อื่น เช่น Unsupervised Learning, Reinforcement Learning ไม่ได้รวมใน course นี้</p>
+<ul>
+<li>Feature matrix (X): ตัวอย่าง/observation (แถว) และตัวแปรที่เกี่ยวข้อง/feature (คอลัมน์)</li>
+<li>Target variable (y): ข้อมูลของตัวแปรที่ต้องการทำนาย/target มีจำนวนแถวเท่ากับ Feature matrix</li>
+</ul>
+<p>ML model แทนด้วยสัญลักษณ์ g(X) -&gt; y โดย function g คือ model ที่เมื่อใส่ตัวแปร X แล้วจะให้ผลทำนาย y กระบวนการหา function g เรียกว่า model trainging</p>
+<section id="ประเภทของ-supervised-learning" class="level2">
+<h2 class="anchored" data-anchor-id="ประเภทของ-supervised-learning">ประเภทของ Supervised Learning</h2>
+<ul>
+<li><strong>Regression:</strong> ตัวแปร target เป็นตัวแปร continuous (ราคารถยนต์)</li>
+<li><strong>Classification:</strong> ตัวแปร target เป็น ตัวแปร category แบ่งได้เป็น 2 ประเภท
+<ul>
+<li><strong>Binary:</strong> มี 2 กลุ่ม เช่น เป็น spam email หรือไม่</li>
+<li><strong>Multiclass problems:</strong> มีกลุ่มมากกว่า 2 กลุ่ม เช่น การจำแนกตัวเลข 1-10 จากภาพลายมือ</li>
+</ul></li>
+<li><strong>Ranking:</strong> ตัวแปร target คือ คะแนนความใกล้เคียง ใช้ในระบบแนะนำ recommendation systems</li>
+</ul>
+<p>สรุป: Supervised Learning คือ การสอนเครื่องโดยใช้ตัวอย่าง ป้อนข้อมูล feature matrix ที่ใช้ทำนาย และผลจริง target เพื่อให้เครื่องหาความสัมพันธ์ หรือ function ที่สามารถทำนายได้ใกล้เคียงค่าจริงมากที่สุด</p>
+</section>
+</section>
+<section id="crisp-dm-ml-process" class="level1">
+<h1>1.4 CRISP-DM: ML Process</h1>
+<p>เราสามารถประยุกต์ใช้แนวคิด CRISP-DM (CRoss Industry Standard Process for Data Mining) โดย CRISP-DM คือ วิธีปฏิบัติในการจัดการโครงการที่เกี่ยวกับ Data Mining ซึ่งสามารถนำมาใช้กับโครงการ ML ได้ ครอบคลุมตั้งแต่ขั้นตอนทำความเข้าใจและตั้งโจทย์ (understanding) จนถึง นำไปใช้งานจริง (deployment) มีขั้นตอนดังนี้</p>
+<p><img src="figures/fig_crisp-dm.png" class="img-fluid"></p>
+<ol type="1">
+<li><p><strong>Business understanding:</strong></p>
+<ul>
+<li>วิเคราะห์และทำความเข้าใจปัญหา ปัญหาคืออะไร</li>
+<li>จำเป็นต้องใช้ ML ในการแก้ไขปัญหาหรือไม่ มีทางเลือกอื่นที่ดีกว่าหรือไม่</li>
+<li>เป้าหมายหรือสิ่งที่คาดหวังไว้ว่าถ้าแก้ปัญหาแล้วจะเป็นอย่างไร ต้องวัดผลได้</li>
+</ul></li>
+<li><p><strong>Data understanding:</strong></p></li>
+</ol>
+<p>ทำความเข้าใจข้อมูลที่ต้องการใช้ทำ ML มีข้อมูลแล้วหรือไม่ ถ้าไม่มีต้องเก็บเพิ่มอย่างไร นอกจากนี้การวิเคราะห์ข้อมูลเบื้องต้นอาจจะทำให้เข้าใจปัญหามากขึ้น และสามารถปรับโจทย์หากจำเป็น</p>
+<ol start="3" type="1">
+<li><strong>Data preparation:</strong></li>
+</ol>
+<p>จัดเตรียมข้อมูล ทำความสะอาดข้อมูล ทำ data pipeline สกัดตัวแปรจากข้อมูล (Feature Engineering) โดยส่วนใหญ่ มีการแปลงข้อมูลในรูปแบบตาราง เพื่อใส่ในแบบจำลอง ML</p>
+<ol start="4" type="1">
+<li><p><strong>Modeling:</strong></p>
+<ul>
+<li>สร้างแบบจำลอง (train model) โดยเปรียบเทียบหลายๆ แบบจำลอง</li>
+<li>เลือกแบบจำลองที่เหมาะสมที่สุด ด้วยวิธีการเลือกที่ถูกต้องตามหลักการ เพื่อป้องกันปัญหา Overfitting</li>
+<li>ผลลัพธ์ที่ได้ใช้วิเคราะห์เกี่ยวกับการเตรียมตัวแปร เพิ่ม/ลดตัวแปร แก้ไขข้อผิดพลาด หากมี</li>
+</ul></li>
+<li><p><strong>Evaluation:</strong></p></li>
+</ol>
+<p>ประเมินความแม่นยำแบบจำลอง แบบจำลองสามารถแก้ไขปัญหาได้หรือไม่ เพือตัดสินใจว่าควรต้องปรับโจทย์ใหม่ หรือ สามารถนำไปใช้จริงได้ หรือ ยกเลิก</p>
+<ol start="6" type="1">
+<li><strong>Deployment:</strong></li>
+</ol>
+<p>นำ ML ไปใช้งานจริง (production) โดยใช้วิธีปฏิบัติที่ดีของ software engineer มีการติดตาม (monitoring) และสามารถบริหารจัดการ/แก้ไขได้ง่าย</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>ML ไม่ใช่ยาวิเศษ ที่แก้ได้ทุกปัญหา</li>
+<li>กระบวนการทำ ML ต้องทำอย่างถูกวิธี ไม่เช่นนั้น จะได้แบบจำลองที่ทำนายข้อมูลเก่าได้ แต่ไม่สามารถนำไปใช้งานจริงได้</li>
+<li>ปัจจุบันขั้นตอน Evaluation และ Deployment ทำไปพร้อมกัน โดยเริ่มใช้งานจริงกับ user กลุ่มเล็กก่อน ถ้าสำเร็จค่อยขยายผล</li>
+<li>โดยปกติแล้วการทำงาน ML ต้องมีการทำซ้ำ ทำไปแก้ไขไป (iterations) เริ่มจากง่ายก่อน วิเคราะห์และเรียนรู้จากสิ่งที่พบ และหาทางพัฒนาให้ดีขึ้น</li>
+</ul>
+</section>
+<section id="model-selection-process" class="level1">
+<h1>1.5 Model Selection Process</h1>
+<p>ในการทำ ML เราจะพิจารณาแบบจำลองมีหลายแบบจำลอง เช่น linear regression, xgboost, Neural Network เป็นต้น</p>
+<p>แต่ละแบบจำลองมี hyperparameter ที่สามารถปรับได้ เช่น max_depth และอื่นๆ</p>
+<p>แล้วจะเลือกแบบจำลองที่เหมาะสมที่สุดอย่างไร</p>
+<p>นอกจากนี้แบบจำลอง ML หลายแบบจำลอง จะสามารถเลียนแบบข้อมูลได้ดี แต่อาจไม่สามารถทำนายข้อมูลที่ไม่เคยเห็นมาก่อนได้ ปัญหานี้รู้จักกันในชื่อว่า Overfitting</p>
+<p><img src="figures/fig_overfitting.png" class="img-fluid"></p>
+<p>วิธีการป้องกัน คือ การแยกข้อมูลเอาไว้สำหรับการทดสอบประสิทธิภาพ แต่เนื่องจากเราต้องเลือก hyperparameter ด้วย ดังนั้นจึงต้องมีการแบ่งข้อมูลออกเป็น training, validation และ test set</p>
+<p>วิธีปฏิบัติในการเลือกแบบจำลอง สามารถสรุปดังนี้</p>
+<p><img src="figures/fig_model_selection.png" class="img-fluid"></p>
+<ol type="1">
+<li><strong>Outer split:</strong> ใช้สำหรับ Train model ของแต่ละ Hyperparameter ของแบบจำลองทางเลือก
+<ul>
+<li><strong>Test Set</strong> ใช้สำหรับประเมินและทดสอบความแม่นยำของแบบจำลองในขั้นตอนสุดท้าย</li>
+<li><strong>Outer Training Set</strong> ใช้สำหรับการทำ cross-validation เพื่อปรับ hyper-parameter</li>
+</ul></li>
+<li><strong>Cross-validation:</strong> เป็นการแบ่งข้อมูลอีกครั้ง เป็น inner training set และ validation set ทั้งนี้ cross-validation มีหลายวิธี แต่วิธีที่นิยมตือ K-Fold cross-validation
+<ul>
+<li>แบ่งข้อมูลออกเป็น K ส่วน</li>
+<li>ในแต่ละ set ของ hyperparameter ดำเนินการ train model ด้วย inner training set และทดสอบกับ validation set</li>
+<li>ทำ K ครั้ง แล้วใช้ค่าเฉลี่ยเป็นตัวแทนของค่า error ของ hyperparameter</li>
+<li>ทำซ้ำในทุก hyperparameter</li>
+</ul></li>
+<li><strong>Select best hyperparameter:</strong> ในแต่ละแบบจำลอง เลือก hyperparameter ที่ดีที่สุด โดยดูจาก metrics (RMSE, MAPE) ที่กำหนด</li>
+<li><strong>Refit model</strong> train model ด้วย hyperparameter ที่เลือก ด้วยข้อมูล training set ทั้งหมด ได้แบบจำลองสุดท้าย</li>
+<li><strong>Final Evaluation</strong> เปรียบเทียบประสิทธิภาพของแต่ละแบบจำลองด้วย metrics ที่กำหนด ดูประสิทธิภาพที่เปลี่ยนไปก่อนและหลัง test set เลือกแบบจำลองที่มีประสิทธิภาพดีที่สุดในขั้นตอนนี้ เพื่อใช้งานจริง</li>
+</ol>
+</section>
+<section id="setting-up-the-environment" class="level1">
+<h1>1.6 Setting up the Environment</h1>
+<section id="install-miniconda" class="level2">
+<h2 class="anchored" data-anchor-id="install-miniconda">install miniconda</h2>
+<ul>
+<li>ไปที่ <a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></li>
+<li>เลือกระบบปฏิบัติการ และ bit ที่เหมาะสมของแต่ละเครื่อง เช่น <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" class="uri">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
+<li>download และ install</li>
+<li>เลือก OK จนติดตั้งเสร็จเรียบร้อย</li>
+</ul>
+</section>
+<section id="สราง-environment" class="level2">
+<h2 class="anchored" data-anchor-id="สราง-environment">สร้าง environment</h2>
+<ul>
+<li>เปิด Anaconda Prompt (ไปที่ search -&gt; ค้นหา Anaconda)</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ตรวจสอบว่า python พร้อมใช้งาน</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">where</span> python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>สร้าง environment</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> ml-zoomcamp python=3.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>install jupyter lab</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>เปิดการใช้งาน (activate) environment</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate ml-zoomcamp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>install python libraries</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas scikit-learn seaborn openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>สร้าง kernel</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ipython</span> kernel install <span class="at">--name</span> <span class="st">"ml-zoomcamp"</span> <span class="at">--user</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>เปิดใช้งาน jupyterlab</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>เมื่อใช้งานเสร็จแล้ว ปิด environment โดย</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactive</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="optinal-install-vscode" class="level2">
+<h2 class="anchored" data-anchor-id="optinal-install-vscode">[Optinal] install vscode</h2>
+<ul>
+<li>download program vscode จาก <a href="https://code.visualstudio.com/download" class="uri">https://code.visualstudio.com/download</a></li>
+<li>install program</li>
+<li>เปิดโปรแกรม</li>
+<li>download Extension: python, jupyter และอื่นๆ</li>
+</ul>
+<p>Useful links:</p>
+<ul>
+<li><a href="https://mlbookcamp.com/article/python" class="uri">https://mlbookcamp.com/article/python</a></li>
+</ul>
+</section>
+</section>
+<section id="introduction-to-numpy" class="level1">
+<h1>1.7 Introduction to Numpy</h1>
+<ul>
+<li>Creating arrays</li>
+<li>Multi-dimensional arrays</li>
+<li>Randomly generated arrays</li>
+<li>Element-wise operations</li>
+<li>Summarizing operations</li>
+</ul>
+<p>Other links:</p>
+<ul>
+<li><a href="https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/appendix-c-numpy.ipynb" class="uri">https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/appendix-c-numpy.ipynb</a></li>
+<li><a href="https://mlbookcamp.com/article/numpy" class="uri">https://mlbookcamp.com/article/numpy</a></li>
+</ul>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>np.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>'1.22.3'</code></pre>
+</div>
+</div>
+<section id="creating-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="creating-arrays">Creating arrays</h2>
+<p>array หมายถึง ข้อมูลมารวมกันเป็นชุด มีทั้งแบบมิติเดียวและหลายมิติ เช่น array ข้อมูล 0 จำนวน 10 ค่า เป็นต้น ทั้งนี้ ข้อมูลใน array มีเงื่อนไขว่าต้องเป็นข้อมูลประเภทเดียวกัน เช่น ตัวเลข วันที่ หรือ ข้อความ</p>
+<p>การสร้าง array สามารถทำได้หลายวิธี ดังนี้</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># array ของเลข 0</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># array ของเลข 1</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>np.ones(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># array ของเลขที่กำหนดเอง ตั้งชื่อเป็นตัวแปร a</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">12</span>])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([ 1,  2,  3,  5,  7, 12])</code></pre>
+</div>
+</div>
+<p>สามารถเรียกดูสมาชิกใน array ได้ โดย <code>a[x]</code> โดย x คือ index ที่ต้องการ python สมาชิกตัวแรก เริ่มด้วยเลข 0</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># สมาชิกตัวที่ 3</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>3</code></pre>
+</div>
+</div>
+<p>สามารถแก้ไขค่าได้ด้วยการใช้ เครื่องหมาย <code>=</code></p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array([ 1,  2, 10,  5,  7, 12])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># np.arrage สร้าง series จำนวนเต็ม</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">3</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>array([3, 4, 5, 6, 7, 8, 9])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># np.linspace สร้าง series ที่แบ่งออกเป็นช่วงที่มีความกว้างเท่าๆ กัน</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>array([  0.,  10.,  20.,  30.,  40.,  50.,  60.,  70.,  80.,  90., 100.])</code></pre>
+</div>
+</div>
+</section>
+<section id="multi-dimenstional-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="multi-dimenstional-arrays">Multi-dimenstional arrays</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>array([[0., 0.],
+       [0., 0.],
+       [0., 0.],
+       [0., 0.],
+       [0., 0.]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> np.array([</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change by element</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>array([[ 1, 20,  3],
+       [ 4,  5,  6],
+       [ 7,  8,  9]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change by row</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">2</span>] <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>array([[ 1, 20,  3],
+       [ 4,  5,  6],
+       [ 1,  1,  1]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change by column</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>n[:, <span class="dv">2</span>] <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>array([[ 1, 20,  0],
+       [ 4,  5,  1],
+       [ 7,  8,  2]])</code></pre>
+</div>
+</div>
+</section>
+<section id="randomly-generated-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="randomly-generated-arrays">Randomly generated arrays</h2>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="op">*</span> np.random.rand(<span class="dv">5</span>, <span class="dv">2</span>) <span class="co"># uniform distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>array([[43.59949021,  2.59262318],
+       [54.96624779, 43.53223926],
+       [42.03678021, 33.0334821 ],
+       [20.4648634 , 61.92709664],
+       [29.96546737, 26.68272751]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>np.random.randn(<span class="dv">5</span>, <span class="dv">2</span>) <span class="co"># normal distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>array([[-0.41675785, -0.05626683],
+       [-2.1361961 ,  1.64027081],
+       [-1.79343559, -0.84174737],
+       [ 0.50288142, -1.24528809],
+       [-1.05795222, -0.90900761]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.random.randint(low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span><span class="dv">100</span>, size<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">2</span>)) <span class="co"># integer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>array([[40, 15],
+       [72, 22],
+       [43, 82],
+       [75,  7],
+       [34, 49]])</code></pre>
+</div>
+</div>
+</section>
+<section id="element-wise-operations" class="level2">
+<h2 class="anchored" data-anchor-id="element-wise-operations">Element-wise operations</h2>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.arange(<span class="dv">5</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>array([0, 1, 2, 3, 4])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> (<span class="dv">10</span> <span class="op">+</span> (a <span class="op">*</span> <span class="dv">2</span>)) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>array([1.  , 1.44, 1.96, 2.56, 3.24])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">/</span> b <span class="op">+</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>array([10.        , 10.69444444, 11.02040816, 11.171875  , 11.2345679 ])</code></pre>
+</div>
+</div>
+</section>
+<section id="comparison-operations" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-operations">Comparison operations</h2>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>array([0, 1, 2, 3, 4])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>array([False, False,  True,  True,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>array([1.  , 1.44, 1.96, 2.56, 3.24])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>array([False, False,  True,  True,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>a[a <span class="op">&gt;</span> b] <span class="co"># masking</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>array([2, 3, 4])</code></pre>
+</div>
+</div>
+</section>
+<section id="summarizeing-operations" class="level2">
+<h2 class="anchored" data-anchor-id="summarizeing-operations">Summarizeing operations</h2>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>array([0, 1, 2, 3, 4])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>a.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>2.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>a.std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>1.4142135623730951</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="linear-algebra-refresher" class="level1">
+<h1>1.8 Linear Algebra Refresher</h1>
+<ul>
+<li>Vector operations</li>
+<li>Multiplication
+<ul>
+<li>Vector-vector multiplication</li>
+<li>Matrix-vector multiplication</li>
+<li>Matrix-matrix multiplication</li>
+</ul></li>
+<li>Identity matrix</li>
+<li>Inverse</li>
+</ul>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>array([ 4,  8, 10, 12])</code></pre>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">+</span> v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>array([3, 4, 5, 8])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">*</span> v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>array([ 2,  0,  0, 12])</code></pre>
+</div>
+</div>
+<section id="multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="multiplication">Multiplication</h2>
+<ul>
+<li>vector-vector operation</li>
+</ul>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>u.dot(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>14</code></pre>
+</div>
+</div>
+<ul>
+<li>matrix-vector operation</li>
+</ul>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.array([</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>(U.shape, v.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>((3, 4), (4,))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>U.dot(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>array([14,  5,  5])</code></pre>
+</div>
+</div>
+<ul>
+<li>matrix-matrix operation</li>
+</ul>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> np.array([</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>], </span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>(U.shape, V.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>((3, 4), (4, 3))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>U.dot(V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>array([[14. , 20. , 13. ],
+       [ 5. ,  6. ,  5. ],
+       [ 5. ,  8.5,  9. ]])</code></pre>
+</div>
+</div>
+</section>
+<section id="identity-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="identity-matrix">Identity matrix</h2>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.eye(<span class="dv">3</span>)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>I</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>V.dot(I)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>array([[1. , 1. , 2. ],
+       [0. , 0.5, 1. ],
+       [0. , 2. , 1. ],
+       [2. , 1. , 0. ]])</code></pre>
+</div>
+</div>
+</section>
+<section id="inverse" class="level2">
+<h2 class="anchored" data-anchor-id="inverse">Inverse</h2>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>Vs <span class="op">=</span> V[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]]</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>Vs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>array([[1. , 1. , 2. ],
+       [0. , 0.5, 1. ],
+       [0. , 2. , 1. ]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>Vs_inv <span class="op">=</span> np.linalg.inv(Vs)</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>Vs_inv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>array([[ 1.        , -2.        ,  0.        ],
+       [ 0.        , -0.66666667,  0.66666667],
+       [ 0.        ,  1.33333333, -0.33333333]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>Vs.dot(Vs_inv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="introduction-to-pandas" class="level1">
+<h1>1.9 Introduction to Pandas</h1>
+<p><code>pandas</code> เป็น python library ที่ทำงานกับข้อมูล</p>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="data-frame">Data frame</h2>
+<p>Data frame คือ ข้อมูลที่อยู่ในรูปแบบตาราง 2 มิติ</p>
+<ul>
+<li>row (แถว) คือ ข้อมูลของแต่ละตัวอย่าง เช่น ข้อมูลราคาและคุณลักษณะของรถยนต์แต่ละคัน</li>
+<li>column (คอลัมน์) คือ ข้อมูลตัวแปร โดยข้อมูลใน column เดียวกัน จะมีชนิดเดียวกัน เช่น Make หมายถึง ผู้ผลิตรถยนต์</li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Nissan'</span>, <span class="st">'Stanza'</span>, <span class="dv">1991</span>, <span class="dv">138</span>, <span class="dv">4</span>, <span class="st">'MANUAL'</span>, <span class="st">'sedan'</span>, <span class="dv">2000</span>],</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Hyundai'</span>, <span class="st">'Sonata'</span>, <span class="dv">2017</span>, <span class="va">None</span>, <span class="dv">4</span>, <span class="st">'AUTOMATIC'</span>, <span class="st">'Sedan'</span>, <span class="dv">27150</span>],</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Lotus'</span>, <span class="st">'Elise'</span>, <span class="dv">2010</span>, <span class="dv">218</span>, <span class="dv">4</span>, <span class="st">'MANUAL'</span>, <span class="st">'convertible'</span>, <span class="dv">54990</span>],</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'GMC'</span>, <span class="st">'Acadia'</span>,  <span class="dv">2017</span>, <span class="dv">194</span>, <span class="dv">4</span>, <span class="st">'AUTOMATIC'</span>, <span class="st">'4dr SUV'</span>, <span class="dv">34450</span>],</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Nissan'</span>, <span class="st">'Frontier'</span>, <span class="dv">2017</span>, <span class="dv">261</span>, <span class="dv">6</span>, <span class="st">'MANUAL'</span>, <span class="st">'Pickup'</span>, <span class="dv">32340</span>],</span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [</span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Make'</span>, <span class="st">'Model'</span>, <span class="st">'Year'</span>, <span class="st">'Engine HP'</span>, <span class="st">'Engine Cylinders'</span>,</span>
+<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Transmission Type'</span>, <span class="st">'Vehicle_Style'</span>, <span class="st">'MSRP'</span></span>
+<span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb94-13"><a href="#cb94-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-14"><a href="#cb94-14" aria-hidden="true" tabindex="-1"></a><span class="co"># สร้าง dataframe</span></span>
+<span id="cb94-15"><a href="#cb94-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data, columns<span class="op">=</span>columns)</span>
+<span id="cb94-16"><a href="#cb94-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>convertible</td>
+      <td>54990</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># การเรียกดูเฉพาะบางแถว</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>df.head(n<span class="op">=</span><span class="dv">2</span>) <span class="co"># 2 แถวแรก</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>df.tail(n<span class="op">=</span><span class="dv">2</span>) <span class="co"># 2 แถวสุดท้าย</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="series" class="level2">
+<h2 class="anchored" data-anchor-id="series">Series</h2>
+<p>Series คือ ข้อมูลที่อยู่ในมิติเดียว เหมือนกับ array แต่จะมี metadata อื่นประกอบ เช่น ชื่อของ Series เป็นต้น</p>
+<p>Data Frame จริงๆ คือ การเอา Series มารวมกัน โดย Series คือ ข้อมูลในแต่ละ column</p>
+<p>เราสามารถเรียกดู หรือ เลือกเฉพาะบาง column จาก Data Frame ได้</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>df.Make <span class="co"># subset ด้วย attribute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>0     Nissan
+1    Hyundai
+2      Lotus
+3        GMC
+4     Nissan
+Name: Make, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Make"</span>] <span class="co"># subset ด้วย []</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>0     Nissan
+1    Hyundai
+2      Lotus
+3        GMC
+4     Nissan
+Name: Make, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Engine HP'</span>] <span class="co"># ชื่อ column มี ช่องว่าง</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>0    138.0
+1      NaN
+2    218.0
+3    194.0
+4    261.0
+Name: Engine HP, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>col_name <span class="op">=</span> <span class="st">'Engine HP'</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>df[col_name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>0    138.0
+1      NaN
+2    218.0
+3    194.0
+4    261.0
+Name: Engine HP, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'Make'</span>, <span class="st">'Model'</span>, <span class="st">'MSRP'</span>]] <span class="co"># เลือกหลายคอลัมน์</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>27150</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>54990</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>34450</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>32340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># สร้าง column ใหม่</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'id'</span>] <span class="op">=</span> [<span class="st">'nis1'</span>, <span class="st">'hyu1'</span>, <span class="st">'lot2'</span>, <span class="st">'gmc1'</span>, <span class="st">'nis2'</span>]</span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ลบ column</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>df.drop(<span class="st">"id"</span>, axis <span class="op">=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>convertible</td>
+      <td>54990</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="index" class="level2">
+<h2 class="anchored" data-anchor-id="index">Index</h2>
+<p>Index หรือ ดัชนี ใช้ในการเรียงลำดับของข้อมูล โดย attribute</p>
+<ul>
+<li>index ใช้สำหรับแถว</li>
+<li>columns ใช้สำหรับคอลัมน์</li>
+</ul>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>RangeIndex(start=0, stop=5, step=1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>df.Make.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>RangeIndex(start=0, stop=5, step=1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>Index(['Make', 'Model', 'Year', 'Engine HP', 'Engine Cylinders',
+       'Transmission Type', 'Vehicle_Style', 'MSRP', 'id'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>สามารถเลือกข้อมูลโดยใช้ index ด้วย method <code>iloc</code> และ <code>loc</code> โดยใช้ syntax</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ใช้ index number</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="op">&lt;</span>row index<span class="op">&gt;</span> , <span class="op">&lt;</span>column index<span class="op">&gt;</span>]</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ใช้ index name</span></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="op">&lt;</span>row name<span class="op">&gt;</span>, <span class="op">&lt;</span>column name<span class="op">&gt;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>Make                 Nissan
+Model                Stanza
+Year                   1991
+Engine HP             138.0
+Engine Cylinders          4
+Transmission Type    MANUAL
+Vehicle_Style         sedan
+MSRP                   2000
+id                     nis1
+Name: 0, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">0</span>:<span class="dv">3</span>, [<span class="st">"Make"</span>, <span class="st">"Model"</span>, <span class="st">"Year"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering" class="level2">
+<h2 class="anchored" data-anchor-id="filtering">Filtering</h2>
+<p>เป็นการเลือกข้อมูลกำหนดเงื่อนไข</p>
+<div class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'Make'</span>] <span class="op">==</span> <span class="st">'Nissan'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="83">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'Year'</span>] <span class="op">&gt;</span> <span class="dv">2010</span>) <span class="op">&amp;</span> (df[<span class="st">'Transmission Type'</span>] <span class="op">==</span> <span class="st">'AUTOMATIC'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">"Year &gt; 2010 &amp; `Transmission Type` == 'AUTOMATIC'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Engine HP</th>
+      <th>Engine Cylinders</th>
+      <th>Transmission Type</th>
+      <th>Vehicle_Style</th>
+      <th>MSRP</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="string-operations" class="level2">
+<h2 class="anchored" data-anchor-id="string-operations">String operations</h2>
+<p>การจัดข้อมูลข้อความ โดนมี method <code>.str.XXX</code> ในการจัดการ เช่น</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series ข้อมูลข้อความ</span></span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Vehicle_Style'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>0          sedan
+1          Sedan
+2    convertible
+3        4dr SUV
+4         Pickup
+Name: Vehicle_Style, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># แปลงเป็นตัวเล็ก</span></span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Vehicle_Style'</span>].<span class="bu">str</span>.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>0          sedan
+1          sedan
+2    convertible
+3        4dr suv
+4         pickup
+Name: Vehicle_Style, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># แทนค่าช่องว่าง ด้วย _</span></span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Vehicle_Style'</span>].<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="87">
+<pre><code>0          sedan
+1          Sedan
+2    convertible
+3        4dr_SUV
+4         Pickup
+Name: Vehicle_Style, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Vehicle_Style'</span>].<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>0          sedan
+1          sedan
+2    convertible
+3        4dr_suv
+4         pickup
+Name: Vehicle_Style, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ใช้จัดการชื่อ column ได้เช่นกัน</span></span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>Index(['Make', 'Model', 'Year', 'Engine HP', 'Engine Cylinders',
+       'Transmission Type', 'Vehicle_Style', 'MSRP', 'id'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ในการทำงาน data analytics นิยมตั้งชื่อตัวแปร ด้วย snake case คือ ตัวเล็ก และคั่นด้วย _</span></span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>Index(['make', 'model', 'year', 'engine_hp', 'engine_cylinders',
+       'transmission_type', 'vehicle_style', 'msrp', 'id'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ถ้าจะให้ save ผลที่ได้ ต้อง assign ด้วย</span></span>
+<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>Stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hyundai</td>
+      <td>Sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>Sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lotus</td>
+      <td>Elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>MANUAL</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GMC</td>
+      <td>Acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>AUTOMATIC</td>
+      <td>4dr SUV</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>Frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>MANUAL</td>
+      <td>Pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>ตัวอย่างการใช้งาน แปลงข้อมูลข้อความให้เป็น snake case</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ประเภท โดย object คือ ข้อความ</span></span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>make                  object
+model                 object
+year                   int64
+engine_hp            float64
+engine_cylinders       int64
+transmission_type     object
+vehicle_style         object
+msrp                   int64
+id                    object
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>df.dtypes.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+<pre><code>Index(['make', 'model', 'year', 'engine_hp', 'engine_cylinders',
+       'transmission_type', 'vehicle_style', 'msrp', 'id'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>df.dtypes <span class="op">==</span> <span class="st">'object'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<pre><code>make                  True
+model                 True
+year                 False
+engine_hp            False
+engine_cylinders     False
+transmission_type     True
+vehicle_style         True
+msrp                 False
+id                    True
+dtype: bool</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>df.dtypes[df.dtypes <span class="op">==</span> <span class="st">'object'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
+<pre><code>make                 object
+model                object
+transmission_type    object
+vehicle_style        object
+id                   object
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>df.dtypes[df.dtypes <span class="op">==</span> <span class="st">'object'</span>].index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>Index(['make', 'model', 'transmission_type', 'vehicle_style', 'id'], dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ใช้ for loop ในการแปลงข้อมูล</span></span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>string_columns <span class="op">=</span> df.dtypes[df.dtypes <span class="op">==</span> <span class="st">'object'</span>].index</span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> string_columns:</span>
+<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>    df[col] <span class="op">=</span> df[col].<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb146-6"><a href="#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-7"><a href="#cb146-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="summarizing-operations-eda" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-operations-eda">Summarizing operations (EDA)</h2>
+<p>เป็นการสรุปข้อมูลเพื่อทำให้เราเข้าใจภาพรวมข้อมูลเบื้องต้นได้</p>
+<ul>
+<li>ตัวแปร Numeric</li>
+</ul>
+<div class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>df.msrp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="100">
+<pre><code>0     2000
+1    27150
+2    54990
+3    34450
+4    32340
+Name: msrp, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>df.msrp.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>30186.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>df.msrp.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>150930</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>df.msrp.<span class="bu">min</span>(), df.msrp.<span class="bu">max</span>(), df.msrp.mean(), df.msrp.std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+<pre><code>(2000, 54990, 30186.0, 18985.044903818372)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>df.msrp.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>count        5.000000
+mean     30186.000000
+std      18985.044904
+min       2000.000000
+25%      27150.000000
+50%      32340.000000
+75%      34450.000000
+max      54990.000000
+Name: msrp, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="106">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>msrp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.000000</td>
+      <td>4.00000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2010.400000</td>
+      <td>202.75000</td>
+      <td>4.400000</td>
+      <td>30186.000000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>11.260551</td>
+      <td>51.29896</td>
+      <td>0.894427</td>
+      <td>18985.044904</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1991.000000</td>
+      <td>138.00000</td>
+      <td>4.000000</td>
+      <td>2000.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2010.000000</td>
+      <td>180.00000</td>
+      <td>4.000000</td>
+      <td>27150.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2017.000000</td>
+      <td>206.00000</td>
+      <td>4.000000</td>
+      <td>32340.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2017.000000</td>
+      <td>228.75000</td>
+      <td>4.000000</td>
+      <td>34450.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2017.000000</td>
+      <td>261.00000</td>
+      <td>6.000000</td>
+      <td>54990.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>df.describe().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="107">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>msrp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.00</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2010.40</td>
+      <td>202.75</td>
+      <td>4.40</td>
+      <td>30186.00</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>11.26</td>
+      <td>51.30</td>
+      <td>0.89</td>
+      <td>18985.04</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1991.00</td>
+      <td>138.00</td>
+      <td>4.00</td>
+      <td>2000.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2010.00</td>
+      <td>180.00</td>
+      <td>4.00</td>
+      <td>27150.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2017.00</td>
+      <td>206.00</td>
+      <td>4.00</td>
+      <td>32340.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2017.00</td>
+      <td>228.75</td>
+      <td>4.00</td>
+      <td>34450.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2017.00</td>
+      <td>261.00</td>
+      <td>6.00</td>
+      <td>54990.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>ตัวแปร Categorial</li>
+</ul>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>df.make.nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>df.nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
+<pre><code>make                 4
+model                5
+year                 3
+engine_hp            4
+engine_cylinders     2
+transmission_type    2
+vehicle_style        4
+msrp                 5
+id                   5
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a>df.make.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
+<pre><code>nissan     2
+hyundai    1
+lotus      1
+gmc        1
+Name: make, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values">Missing Values</h2>
+<p>การจัดการข้อมูลขาดหาย</p>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>df.isnull()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="112">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="113">
+<pre><code>make                 0
+model                0
+year                 0
+engine_hp            1
+engine_cylinders     0
+transmission_type    0
+vehicle_style        0
+msrp                 0
+id                   0
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>df.engine_hp.isnull()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="114">
+<pre><code>0    False
+1     True
+2    False
+3    False
+4    False
+Name: engine_hp, dtype: bool</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># การแทนค่า missing ด้วย 0</span></span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>df.engine_hp.fillna(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>0    138.0
+1      0.0
+2    218.0
+3    194.0
+4    261.0
+Name: engine_hp, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># การแทนค่า missing ด้วยค่าเฉลี่ย</span></span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a>df.engine_hp.fillna(df.engine_hp.mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>0    138.00
+1    202.75
+2    218.00
+3    194.00
+4    261.00
+Name: engine_hp, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.0</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.0</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.0</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># บันทึกผลใน dataframe</span></span>
+<span id="cb176-2"><a href="#cb176-2" aria-hidden="true" tabindex="-1"></a>df.engine_hp <span class="op">=</span> df.engine_hp.fillna(df.engine_hp.mean())</span>
+<span id="cb176-3"><a href="#cb176-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>202.75</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.00</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.00</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="group-by" class="level2">
+<h2 class="anchored" data-anchor-id="group-by">Group By</h2>
+<p>เป็นการสรุปข้อมูลตามกลุ่มข้อมูล</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'transmission_type'</span>).msrp.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>transmission_type
+automatic    34450
+manual       54990
+Name: msrp, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'transmission_type'</span>).msrp.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>transmission_type
+automatic    30800.000000
+manual       29776.666667
+Name: msrp, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="io" class="level2">
+<h2 class="anchored" data-anchor-id="io">I/O</h2>
+<p>เกี่ยวกับการนำเข้อมูลข้าและนำออกจากการทำงาน</p>
+<ul>
+<li>การนำเข้า</li>
+</ul>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from csv</span></span>
+<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/w1_data.csv"</span>)</span>
+<span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>202.75</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.00</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.00</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from excel</span></span>
+<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ถ้ายังมี error ให้ install openpyxl ก่อน</span></span>
+<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install openpyxl</span></span>
+<span id="cb182-4"><a href="#cb182-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-5"><a href="#cb182-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"data/w1_data.xlsx"</span>)</span>
+<span id="cb182-6"><a href="#cb182-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>engine_hp</th>
+      <th>engine_cylinders</th>
+      <th>transmission_type</th>
+      <th>vehicle_style</th>
+      <th>msrp</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>nissan</td>
+      <td>stanza</td>
+      <td>1991</td>
+      <td>138.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>sedan</td>
+      <td>2000</td>
+      <td>nis1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hyundai</td>
+      <td>sonata</td>
+      <td>2017</td>
+      <td>202.75</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>sedan</td>
+      <td>27150</td>
+      <td>hyu1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lotus</td>
+      <td>elise</td>
+      <td>2010</td>
+      <td>218.00</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>convertible</td>
+      <td>54990</td>
+      <td>lot2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>gmc</td>
+      <td>acadia</td>
+      <td>2017</td>
+      <td>194.00</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>4dr_suv</td>
+      <td>34450</td>
+      <td>gmc1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>nissan</td>
+      <td>frontier</td>
+      <td>2017</td>
+      <td>261.00</td>
+      <td>6</td>
+      <td>manual</td>
+      <td>pickup</td>
+      <td>32340</td>
+      <td>nis2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>การนำข้อมูลออก</li>
+</ul>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to csv</span></span>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"data/w1_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to excel</span></span>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>df.to_excel(<span class="st">"data/w1_data.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
